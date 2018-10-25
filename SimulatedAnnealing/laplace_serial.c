@@ -60,8 +60,8 @@ int main(int argc, char *argv[]) {
         // main calculation: average my four neighbors
         for(i = 1; i <= ROWS; i++) {
             for(j = 1; j <= COLUMNS; j++) {
-                Temperature[i][j] = 0.25 * (Temperature_last[i+1][j] + Temperature_last[i-1][j] +
-                                            Temperature_last[i][j+1] + Temperature_last[i][j-1]);
+                Temperature[i][j] = 0.25 * (Temperature_last[i+1][j] + Temperature[i-1][j] +
+                                            Temperature_last[i][j+1] + Temperature[i][j-1]);
             }
         }
         

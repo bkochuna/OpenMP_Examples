@@ -28,10 +28,10 @@ program serial
       double precision, parameter    :: max_temp_error=0.01
 
       integer                        :: i, j, max_iterations, iteration=1
-      double precision               :: dt=100.0
+      real(8)                        :: dt=100.0
       integer                        :: start_time, stop_time, count_rate
 
-      double precision, dimension(0:rows+1,0:columns+1) :: temperature, temperature_last
+      real(8), dimension(0:rows+1,0:columns+1) :: temperature, temperature_last
 
       max_iterations=4000
 
@@ -44,8 +44,8 @@ program serial
 
          do j=1,columns
             do i=1,rows
-               temperature(i,j)=0.25*(temperature_last(i+1,j)+temperature_last(i-1,j)+ &
-                                      temperature_last(i,j+1)+temperature_last(i,j-1) )
+               temperature(i,j)=0.25*(temperature_last(i+1,j)+temperature(i-1,j)+ &
+                                      temperature_last(i,j+1)+temperature(i,j-1) )
             enddo
          enddo
 
@@ -73,19 +73,13 @@ program serial
       print*, 'Max error at iteration ', iteration-1, ' was ',dt
       print*, 'Total time was ',REAL(stop_time-start_time,4)/REAL(count_rate,4), ' seconds.'
 
-end program serial
-
+contains
 
 ! initialize plate and boundery conditions
 ! temp_last is used to to start first iteration
 subroutine initialize( temperature_last )
-      implicit none
-
-      integer, parameter             :: columns=1000
-      integer, parameter             :: rows=1000
-      integer                        :: i,j
-
-      double precision, dimension(0:rows+1,0:columns+1) :: temperature_last
+      INTEGER :: i,j
+      REAL(8) :: temperature_last(0:rows+1,0:columns+1)
 
       temperature_last = 0.0
 
@@ -105,16 +99,10 @@ subroutine initialize( temperature_last )
 
 end subroutine initialize
 
-
 !print diagonal in bottom corner where most action is
 subroutine track_progress(temperature, iteration)
-      implicit none
-
-      integer, parameter             :: columns=1000
-      integer, parameter             :: rows=1000
-      integer                        :: i,iteration
-
-      double precision, dimension(0:rows+1,0:columns+1) :: temperature
+      INTEGER :: i,iteration
+      REAL(8) :: temperature(0:rows+1,0:columns+1)
 
       print *, '---------- Iteration number: ', iteration, ' ---------------'
       do i=5,0,-1
@@ -123,3 +111,5 @@ subroutine track_progress(temperature, iteration)
       enddo
       print *
 end subroutine track_progress
+
+end program serial
