@@ -10,7 +10,7 @@ so the resulting fixed point iteration scheme is given by:
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=T^{(k&plus;1)}_{i,j}&space;=&space;\frac{1}{4}\Big(&space;T^{(k&plus;1)}_{i-1,j}&space;&plus;&space;T^{(k)}_{i&plus;1,j}&space;&plus;&space;T^{(k&plus;1)}_{i,j-1}&space;&plus;&space;T^{(k)}_{i,j&plus;1}&space;\Big)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?T^{(k&plus;1)}_{i,j}&space;=&space;\frac{1}{4}\Big(&space;T^{(k&plus;1)}_{i-1,j}&space;&plus;&space;T^{(k)}_{i&plus;1,j}&space;&plus;&space;T^{(k&plus;1)}_{i,j-1}&space;&plus;&space;T^{(k)}_{i,j&plus;1}&space;\Big)" title="T^{(k+1)}_{i,j} = \frac{1}{4}\Big( T^{(k+1)}_{i-1,j} + T^{(k)}_{i+1,j} + T^{(k+1)}_{i,j-1} + T^{(k)}_{i,j+1} \Big)" /></a>
 
-Serial code is provided in C and Fortran. Possible solutions utilizing OpenMP are provided in the solutions folder.
+Serial code is provided in C and Fortran. 
 
 To compile the examples the recommended:
 ```bash
