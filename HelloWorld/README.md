@@ -6,13 +6,13 @@ routines, constants, and variables within the scope of the program and howto cre
 If you are new to OpenMP you are encouraged to also explore the various
 ways one may define the number threads for a parallel region.
 Explore the following:
-- omp_set_num_threads
-- num_threads clause
-- OMP_NUM_THREADS environment variable
+- ```omp_set_num_threads```
+- ```num_threads``` clause
+- ```OMP_NUM_THREADS``` environment variable
 
 If you wish to go further, try exploring the thread affinity options
-- OMP_PROC_BIND
-- OMP_PLACES
+- ```OMP_PROC_BIND```
+- ```OMP_PLACES```
 
 To print the core number use the following
 ```c
