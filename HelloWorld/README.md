@@ -29,10 +29,9 @@ int main() {
 
 ```
 
-Serial code is provided in C and Fortran. Possible solutions utilizing OpenMP are provided in the solutions folder.
+Serial code is provided in C. Possible solutions utilizing OpenMP are provided in the solutions folder.
 
-To compile the examples the recommended:
+To compile the example and solutions the recommended:
 ```bash
 gcc -fopenmp -o hello.exe hello.c 
-gfortran -fopenmp -o hello.exe hello.f90
 ```
