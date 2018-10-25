@@ -14,6 +14,6 @@ Serial code is provided in C and Fortran.
 
 To compile the examples the recommended:
 ```bash
-gcc -fopenmp -o laplace_serial.exe laplace_serial.c 
+gcc -fopenmp -lm -o laplace_serial.exe laplace_serial.c 
 gfortran -fopenmp -o laplace_serial.exe laplace_serial.f90
 ```
